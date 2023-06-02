@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <canvas id="datasheetCanvas">
+
+    </canvas>
+    <main>
+
+
+        <section id="datasheet">
+            <header id="info">
+                <div id="name">
+                    <span contenteditable="true">
+                        Name
+                    </span>
+                </div>
+                <div>
+                    <div id="basicInfo">
+                        <div id="move">
+                            <span>
+                                M
+                            </span>
+                            <span contenteditable="true" class="basicInfo">
+                                0"
+                            </span>
+                        </div>
+                        <div id="thoughness">
+                            <span>
+                                T
+                            </span>
+                            <span contenteditable="true" class="basicInfo">
+                                0
+                            </span>
+                        </div>
+                        <div id="wounds">
+                            <span>
+                                W
+                            </span>
+                            <span contenteditable="true" class="basicInfo">
+                                0
+                            </span>
+                        </div>
+                        <div id="leadership">
+                            <span>
+                                Ld
+                            </span>
+                            <span contenteditable="true" class="basicInfo">
+                                0
+                            </span>
+                        </div>
+                        <div id="save">
+                            <span>
+                                Sv
+                            </span>
+                            <span contenteditable="true" class="basicInfo">
+                                0+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+            <section id="content">
+                <div id="leftContent">
+                    <table id="rangedWeapons">
+                        
+                        <tbody>
+                            <tr class="weaponHeader">
+                                <th class="weaponFirstItem">
+                                    RANGED WEAPONS
+                                </th>
+                                <th>
+                                    Range
+                                </th>
+                                <th>
+                                    A
+                                </th>
+                                <th>
+                                    BS
+                                </th>
+                                <th>
+                                    S
+                                </th>
+                                <th>
+                                    AP
+                                </th>
+                                <th>
+                                    D
+                                </th>
+                                </tr>
+                            <tr class="weapon">
+                                <td class="weaponFirstItem">
+                                    <div>
+                                        <span contenteditable="true">
+                                            RANGED WEAPON NAME
+                                        </span>
+                                        <span contenteditable="true">
+                                            [KEYWORDS]
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0"
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table id="rangedWeapons">
+                        
+                        <tbody>
+                            <tr class="weaponHeader">
+                                <th class="weaponFirstItem">
+                                    MELEE WEAPONS
+                                </th>
+                                <th>
+                                    Range
+                                </th>
+                                <th>
+                                    A
+                                </th>
+                                <th>
+                                    WS
+                                </th>
+                                <th>
+                                    S
+                                </th>
+                                <th>
+                                    AP
+                                </th>
+                                <th>
+                                    D
+                                </th>
+                                </tr>
+                            <tr class="weapon">
+                                <td class="weaponFirstItem">
+                                    <div>
+                                        <span contenteditable="true">
+                                            MELEE WEAPON NAME
+                                        </span>
+                                        <span contenteditable="true">
+                                            [KEYWORDS]
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        Melee
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                                <td>
+                                    <span contenteditable="true">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="rightContent">
+                    <header>
+                        <span>
+                            ABILITIES
+                        </span>
+                    </header>
+                    <div id="core">
+                        <span>
+                            CORE:
+                        </span>
+                        <span contenteditable="true">
+                            CORE ABILITIES
+                        </span>
+                    </div>
+                    <div id="faction">
+                        <span>
+                            FACTION:
+                        </span>
+                        <span contenteditable="true">
+                            FACTION ABILITIES
+                        </span>
+                    </div>
+                    <div id="invulnerableSave">
+                        <span>
+                            INVULNERABLE SAVE:
+                        </span>
+                        <span contenteditable="true">
+                            4+
+                        </span>
+
+                    </div>
+                </div>
+            </section>
+            <section id="footer">
+                <div id="leftFooter">
+                    <span>
+                        KEYWORDS:
+                    </span>
+                    <span contenteditable="true">
+                        KEYWORDS
+                    </span>
+                </div>
+                <div id="rightFooter">
+                    <span>
+                        FACTION KEYWORDS:
+                    </span>
+                    <span contenteditable="true">
+                        FACTION KEYWORDS
+                    </span>
+                </div>
+                <div id="factionIcon">
+                    <img>
+                </div>
+            </section>
+        </section>
+    </main>
+    <section id="">
+        <div>
+            <h3>Name</h3>
+            <input type="text" id="name" placeholder="Enter name">
+        </div>
+        <div>
+            <label>Movement</label>
+            <input type="text" id="movement" placeholder="Enter movement">
+            <label>Thougness</label>
+            <input type="text" id="thoughness" placeholder="Enter thougness">
+            <label>Wounds</label>
+            <input type="text" id="wounds" placeholder="Enter wounds">
+            <label>Leadership</label>
+            <input type="text" id="leadership" placeholder="Enter leadership">
+            <label>Save</label>
+            <input type="text" id="save" placeholder="Enter save">
+        </div>
+        <div>
+            <h3>Ranged weapons</h3>
+            <div>
+                <i>+</i>
+            </div>
+            <div id="rangedContainer">
+                <div class="rangedWeapon">
+                    <label>Name</label>
+                    <input type="text" class="rangedName" placeholder="Enter name">
+                    <label>Range</label>
+                    <input type="text" class="rangedRange" placeholder="Enter range">
+                    <label>Type</label>
+                    <input type="text" class="rangedType" placeholder="Enter type">
+                    <label>Attacks</label>
+                    <input type="text" class="rangedAttacks" placeholder="Enter attacks">
+                    <label>Ballistic skill</label>
+                    <input type="text" class="rangedSkill" placeholder="Enter to hit">
+                    <label>Strength</label>
+                    <input type="text" class="rangedStrength" placeholder="Enter strength">
+                    <label>AP</label>
+                    <input type="text" class="rangedAP" placeholder="Enter AP">
+                    <label>Damage</label>
+                    <input type="text" class="rangedDamage" placeholder="Enter damage">
+                </div>
+            </div>
+            <div id="meeleContainer">
+                <h3>Meele weapons</h3>
+                <div>
+                    <i>+</i>
+                </div>
+                <div>
+                    <label>Name</label>
+                    <input type="text" id="meeleName" placeholder="Enter name">
+                    <label>Range</label>
+                    <input type="text" id="meeleRange" placeholder="Enter range">
+                    <label>Attacks</label>
+                    <input type="text" id="meeleAttacks" placeholder="Enter attacks">
+                    <label>To hit</label>
+                    <input type="text" id="meeleToHit" placeholder="Enter to hit">
+                    <label>Strength</label>
+                    <input type="text" id="meeleStrength" placeholder="Enter strength">
+                    <label>AP</label>
+                    <input type="text" id="meeleAP" placeholder="Enter AP">
+                    <label>Damage</label>
+                    <input type="text" id="meeleDamage" placeholder="Enter damage">
+
+                </div>
+            </div>
+            <div id="abilities">
+                <h3>Abilities</h3>
+                <div>
+                    <i>+</i>
+                </div>
+                <div>
+                    <label>Name</label>
+                    <input type="text" id="abilityName" placeholder="Enter name">
+                    <label>Description</label>
+                    <input type="text" id="abilityDescription" placeholder="Enter description">
+                </div>
+
+            </div>
+    </section>
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

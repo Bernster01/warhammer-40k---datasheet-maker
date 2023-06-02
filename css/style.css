@@ -1,0 +1,168 @@
+canvas{
+    border: 1px solid black;
+    background-color: white;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    height: auto;
+}
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --factioncolor: #3b004f; 
+}
+#datasheet{
+    background: linear-gradient(#000000 0%, #ffffff 100%);
+    color: white;
+    width: 1000px;
+    height: 700px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 2rem 0 0;
+}
+#info{
+    margin:3rem;
+    width: 95%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, var(--factioncolor) 0%, rgba(59, 0, 79,0.2) 100%);
+
+
+}
+
+#name{
+    margin:1rem;
+}
+#basicInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: 40%;
+    margin-left:1rem;    
+}
+
+#basicInfo div{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#basicInfo div .basicInfo{
+    margin: 0;
+    width:40px;
+    height: 40px;
+    font-size: 20px;
+    background-color: lightgrey;
+    border: 1px solid var(--factioncolor);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(20% 0%, 100% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 100%, 0% 20%);
+
+
+
+}
+#content{
+    background:lightgray;
+    width: 100%;
+    height: 70%;
+    border: 2px solid var(--factioncolor);
+    display: flex;
+    flex-direction: row;
+    border-radius: 0 0 0 2rem;
+}
+#leftContent{
+    
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid var(--factioncolor);
+}
+table{
+    text-align: center;
+}
+.weaponHeader{
+    background: var(--factioncolor);
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap:1rem;
+}
+.weaponFirstItem{
+    width: 50% !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin:0 !important;
+}
+td, th{
+    width: 40px;
+}
+.weapon{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap:1rem;
+    color: black;
+}
+#rightContent{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+#rightContent header{
+    background: var(--factioncolor);
+    
+    padding:0.2rem;
+}
+#core{
+    color:black;
+}
+#faction{
+    color:black;
+    height:60%;
+}
+
+
+#footer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    color: black;
+}
+#rightFooter{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    width:30.6%;
+    padding: 0.5rem;
+} 
+#rightFooter span{
+    margin-left: 3rem;
+}
+#factionIcon{
+    position: absolute;
+    top:0;
+    left:65.72%;
+    width: 40px;
+    height: 40px;
+    background-color: lightgray;
+    border: 2px solid var(--factioncolor);
+    transform: rotate(45deg);
+}
