@@ -8,16 +8,12 @@
 </head>
 
 <body>
-    <canvas id="datasheetCanvas">
-
-    </canvas>
     <main>
-
-
         <section id="datasheet">
+            <img id="unitImg">
             <header id="info">
                 <div id="name">
-                    <span contenteditable="true">
+                    <span contenteditable="true" id="unitName">
                         Name
                     </span>
                 </div>
@@ -70,8 +66,8 @@
             <section id="content">
                 <div id="leftContent">
                     <table id="rangedWeapons">
-                        
-                        <tbody>
+
+                        <tbody id="rangedWeaponsBody">
                             <tr class="weaponHeader">
                                 <th class="weaponFirstItem">
                                     RANGED WEAPONS
@@ -94,14 +90,14 @@
                                 <th>
                                     D
                                 </th>
-                                </tr>
+                            </tr>
                             <tr class="weapon">
                                 <td class="weaponFirstItem">
                                     <div>
                                         <span contenteditable="true">
-                                            RANGED WEAPON NAME
+                                            WEAPON NAME
                                         </span>
-                                        <span contenteditable="true">
+                                        <span contenteditable="true" style="font-size: 10pt;">
                                             [KEYWORDS]
                                         </span>
                                     </div>
@@ -139,9 +135,9 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table id="rangedWeapons">
-                        
-                        <tbody>
+                    <table id="meleeWeapons">
+
+                        <tbody id="meleeWeaponsBody">
                             <tr class="weaponHeader">
                                 <th class="weaponFirstItem">
                                     MELEE WEAPONS
@@ -164,14 +160,14 @@
                                 <th>
                                     D
                                 </th>
-                                </tr>
+                            </tr>
                             <tr class="weapon">
                                 <td class="weaponFirstItem">
                                     <div>
                                         <span contenteditable="true">
-                                            MELEE WEAPON NAME
+                                            WEAPON NAME
                                         </span>
-                                        <span contenteditable="true">
+                                        <span contenteditable="true" style="font-size: 10pt;">
                                             [KEYWORDS]
                                         </span>
                                     </div>
@@ -236,7 +232,7 @@
                         <span>
                             INVULNERABLE SAVE:
                         </span>
-                        <span contenteditable="true">
+                        <span contenteditable="true" id="invul">
                             4+
                         </span>
 
@@ -261,90 +257,57 @@
                     </span>
                 </div>
                 <div id="factionIcon">
-                    <img>
+                    <img id="factionIconImg">
                 </div>
             </section>
         </section>
-    </main>
-    <section id="">
-        <div>
-            <h3>Name</h3>
-            <input type="text" id="name" placeholder="Enter name">
-        </div>
-        <div>
-            <label>Movement</label>
-            <input type="text" id="movement" placeholder="Enter movement">
-            <label>Thougness</label>
-            <input type="text" id="thoughness" placeholder="Enter thougness">
-            <label>Wounds</label>
-            <input type="text" id="wounds" placeholder="Enter wounds">
-            <label>Leadership</label>
-            <input type="text" id="leadership" placeholder="Enter leadership">
-            <label>Save</label>
-            <input type="text" id="save" placeholder="Enter save">
-        </div>
-        <div>
-            <h3>Ranged weapons</h3>
+        <section>
             <div>
-                <i>+</i>
-            </div>
-            <div id="rangedContainer">
-                <div class="rangedWeapon">
-                    <label>Name</label>
-                    <input type="text" class="rangedName" placeholder="Enter name">
-                    <label>Range</label>
-                    <input type="text" class="rangedRange" placeholder="Enter range">
-                    <label>Type</label>
-                    <input type="text" class="rangedType" placeholder="Enter type">
-                    <label>Attacks</label>
-                    <input type="text" class="rangedAttacks" placeholder="Enter attacks">
-                    <label>Ballistic skill</label>
-                    <input type="text" class="rangedSkill" placeholder="Enter to hit">
-                    <label>Strength</label>
-                    <input type="text" class="rangedStrength" placeholder="Enter strength">
-                    <label>AP</label>
-                    <input type="text" class="rangedAP" placeholder="Enter AP">
-                    <label>Damage</label>
-                    <input type="text" class="rangedDamage" placeholder="Enter damage">
-                </div>
-            </div>
-            <div id="meeleContainer">
-                <h3>Meele weapons</h3>
                 <div>
-                    <i>+</i>
+                    <h3>Faction</h3>
+                    <select id="selectFaction">
+                        <option value="">
+                            Select Faction
+                        </option>
+                        <option value="tyranids">
+                            Tyranids
+                        </option>
+                        <option value="necrons">
+                            Necrons
+                        </option>
+                        <option value="darkAngels">
+                            Dark Angels
+                        </option>
+                    </select>
                 </div>
                 <div>
-                    <label>Name</label>
-                    <input type="text" id="meeleName" placeholder="Enter name">
-                    <label>Range</label>
-                    <input type="text" id="meeleRange" placeholder="Enter range">
-                    <label>Attacks</label>
-                    <input type="text" id="meeleAttacks" placeholder="Enter attacks">
-                    <label>To hit</label>
-                    <input type="text" id="meeleToHit" placeholder="Enter to hit">
-                    <label>Strength</label>
-                    <input type="text" id="meeleStrength" placeholder="Enter strength">
-                    <label>AP</label>
-                    <input type="text" id="meeleAP" placeholder="Enter AP">
-                    <label>Damage</label>
-                    <input type="text" id="meeleDamage" placeholder="Enter damage">
+                    <h3>Unit</h3>
+                    <select id="unit">
 
+                    </select>
                 </div>
             </div>
-            <div id="abilities">
-                <h3>Abilities</h3>
-                <div>
-                    <i>+</i>
-                </div>
-                <div>
-                    <label>Name</label>
-                    <input type="text" id="abilityName" placeholder="Enter name">
-                    <label>Description</label>
-                    <input type="text" id="abilityDescription" placeholder="Enter description">
-                </div>
+            <div>
 
+
+                <div id="addRangedWeapon">
+                    <button id="addRangedWeaponButton">
+                        Add Ranged Weapon
+                    </button>
+                </div>
+                <div id="addMeleeWeapon">
+                    <button id="addMeleeWeaponButton">
+                        Add Melee Weapon
+                    </button>
+                </div>
             </div>
-    </section>
+            <div>
+                <h4>Has invulnerable save</h4>
+                <input type="checkbox" id="hasInvul">
+            </div>
+        </section>
+    </main>
+
 
 </body>
 <script src="js/script.js"></script>

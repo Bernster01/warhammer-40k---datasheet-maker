@@ -1,147 +1,210 @@
-function draw(){
-    let canvas = document.getElementById('datasheetCanvas');
-    let ctx = canvas.getContext('2d');
-    //Set background image as /data/datasheetTyranid.png
-    let img = new Image();
-    img.src = '/data/datasheetTyranid.png';
-    //Set canvas size to image size
-
-    canvas.width = 1000;
-    canvas.height = 675;
-
-    img.onload = function() {
-        ctx.drawImage(img, 0, 0);
-        //Draw traits titles
-    //     ctx.font = 'bold 12px Arial';
-    //     ctx.fillStyle = 'white';
-    //     ctx.fillText('M', 65, 85);
-    //     ctx.fillText('T', 120, 85);
-    //     ctx.fillText('W', 174, 85);
-    //     ctx.fillText('Ld', 225, 85);
-    //     ctx.fillText('Sv', 280, 85);
-
-    //     //Draw character name
-    //     ctx.font = 'bold 30px Arial';
-    //     ctx.fillStyle = 'white';
-    //     ctx.fillText(character.name, 60, 70);
-    //     //Draw character movement
-    //     ctx.font = 'bold 20px Arial';
-    //     ctx.fillStyle = 'black';
-    //     ctx.fillText(character.movement, 55, 120);
-    //     //Draw character thoughness
-    //     ctx.fillText(character.thoughness, 110, 120);
-    //     //Draw character wounds
-    //     ctx.fillText(character.wounds, 165, 120);
-    //     //Draw character leadership
-    //     ctx.fillText(character.leadership, 220, 120);
-    //     //Draw character save
-    //     ctx.fillText(character.save, 275, 120);
-
-    //     //Draw ranged weapons
-    //     ctx.font = 'bold 12px Arial';
-    //     ctx.fillStyle = 'black';
-    //     for (let i = 0; i < character.rangedWeapons.length; i++) {
-    //         console.log(character.rangedWeapons[i]);
-    //         let height = 250 + (i * 15);
-    //         ctx.fillText(character.rangedWeapons[i].name, 80, height);
-    //         ctx.fillText("["+character.rangedWeapons[i].type+"]", 20, height);
-    //         ctx.fillText(character.rangedWeapons[i].range, 350, height);
-    //         ctx.fillText(character.rangedWeapons[i].attacks, 420, height);
-    //         ctx.fillText(character.rangedWeapons[i].skill, 460, height);
-    //         ctx.fillText(character.rangedWeapons[i].strength, 500, height);
-    //         ctx.fillText(character.rangedWeapons[i].armorPenetration, 540, height);
-    //         ctx.fillText(character.rangedWeapons[i].damage, 580, height);
-    //     }
+const factions = [{
+    "blob": "tyranids",
+    "color": "#3b004f",
+    "name": "Tyranids",
+    "iconPath": "Tyranid_Icon.webp",
+    "units": [{
+        "name": "Tyrannofex",
+        "imgPath": "tyrannofex.png",
+    }, {
+        "name": "Hive Tyrant",
+        "imgPath": "hive_tyrant.png"
+    }, {
+        "name": "The Swarmlord",
+        "imgPath": "the_swarmlord.png"
+    }, {
+        "name": "Exocrine",
+        "imgPath": "exocrine.png"
+    }, {
+        "name": "Tyranid Prime",
+        "imgPath": "tyranid_prime.png"
+    }, {
+        "name": "Neurothrope",
+        "imgPath": "neurothrope.png"
+    }, {
+        "name": "Zoanthrope",
+        "imgPath": "zoanthrope.png"
+    }, {
+        "name": "Tyrant Guard",
+        "imgPath": "tyrant_guard.png"
+    }, {
+        "name": "Termagant",
+        "imgPath": "termagant.png"
+    }, {
+        "name": "Maleceptor",
+        "imgPath": "maleceptor.png"
+    }, {
+        "name": "Ripper Swarm",
+        "imgPath": "ripper_swarm.png"
     }
+    ]
+}, {
+    "blob": "darkAngels",
+    "color": "#003407",
+    "name": "Dark Angels",
+    "iconPath": "dark-angels.png",
+    "units": [{
+        "name": "Azrael",
+        "imgPath": "dark-angels/azrael.png",
+    },]
 }
-let character = {
-    name: '',
-    movement: 0,
-    thoughness: 0,
-    wounds: 0,
-    leadership: 0,
-    save: 0,
-    invulnerableSave: 0,
-    rangedWeapons: [],
-    meleeWeapons: [],
-    abilities: [],
-    psychicPowers: [],
-    keywords: [],
+    ,];
+
+
+function populateUnitSelect(faction) {
+    const unitSelect = document.getElementById('unit');
+    unitSelect.innerHTML = '';
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.text = 'Select Unit';
+    unitSelect.appendChild(defaultOption);
+    faction.units.forEach(unit => {
+        const option = document.createElement('option');
+        option.value = unit.name;
+        option.text = unit.name;
+        unitSelect.appendChild(option);
+    });
 }
-
-function setCharacter(){
-    //Get character name
-    character.name = document.getElementById('name').value;
-    //Get character movement
-    character.movement = document.getElementById('movement').value;
-    //Get character thoughness
-    character.thoughness = document.getElementById('thoughness').value;
-    //Get character wounds
-    character.wounds = document.getElementById('wounds').value;
-    //Get character leadership
-    character.leadership = document.getElementById('leadership').value;
-    //Get character save
-    character.save = document.getElementById('save').value;
-
-    //Get character ranged weapons
-    //Get all ranged weapons
-    let rangedWeapons = document.getElementsByClassName('rangedWeapon');
-    //Clear character ranged weapons 
-    character.rangedWeapons = [];
-    //Add ranged weapons to character
-    for (let i = 0; i < rangedWeapons.length; i++) {
-        //Create new ranged weapon
-        let rangedWeapon = {
-            name: '',
-            range: 0,
-            type: '',
-            skill: 0,
-            attacks: 0,
-            strength: 0,
-            armorPenetration: 0,
-            damage: 0,
-        };
-        //Set ranged weapon name
-        rangedWeapon.name = rangedWeapons[i].getElementsByClassName('rangedName')[0].value;
-        //Set ranged weapon range
-        rangedWeapon.range = rangedWeapons[i].getElementsByClassName('rangedRange')[0].value;
-        //Set ranged weapon type
-        rangedWeapon.type = rangedWeapons[i].getElementsByClassName('rangedType')[0].value;
-        //Set ranged weapon strength
-        rangedWeapon.strength = rangedWeapons[i].getElementsByClassName('rangedStrength')[0].value;
-        //Set ranged weapon attacks
-        rangedWeapon.attacks = rangedWeapons[i].getElementsByClassName('rangedAttacks')[0].value;
-        //Set ranged weapon armor penetration
-        rangedWeapon.armorPenetration = rangedWeapons[i].getElementsByClassName('rangedAP')[0].value;
-        //Set ranged weapon damage
-        rangedWeapon.damage = rangedWeapons[i].getElementsByClassName('rangedDamage')[0].value;
-        //Set ranged weapon skill
-        rangedWeapon.skill = rangedWeapons[i].getElementsByClassName('rangedSkill')[0].value;
-
-        //Add ranged weapon to character
-        character.rangedWeapons.push(rangedWeapon);
-    }
+function changeCSSFactionColor(faction) {
+    // Change the CSS variable to the faction color
+    let root = document.querySelector(':root');
+    root.style.setProperty('--factioncolor', faction.color);
+    console.log(faction.color);
 }
 
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    //Get all inputs
-    let inputs = document.getElementsByTagName('input');
-    //Add event listener to all inputs
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener('change', function() {
-            setCharacter();
-            draw();
-        });
+function changeFactionIcon(faction) {
+    let factionIcon = document.getElementById('factionIconImg');
+    factionIcon.src = 'data/icons/' + faction.iconPath;
+}
+function changeUnitImage(unit) {
+    let unitImage = document.getElementById('unitImg');
+    unitImage.src = 'data/units/' + unit.imgPath;
+    let name = document.getElementById('unitName');
+    name.innerHTML = unit.name;
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const factionSelect = document.getElementById('selectFaction');
+    const unitSelect = document.getElementById('unit');
+    const hasInvul = document.getElementById('hasInvul');
+    const addRangedWeapon = document.getElementById('addRangedWeapon');
+    const addMeleeWeapon = document.getElementById('addMeleeWeapon');
+    factionSelect.addEventListener('change', function () {
+        const faction = factions.find(faction => faction.blob === factionSelect.value);
+        populateUnitSelect(faction);
+        changeCSSFactionColor(faction);
+        changeFactionIcon(faction);
     }
-    
-        draw();
+    );
+    unitSelect.addEventListener('change', function () {
+        const faction = factions.find(faction => faction.blob === factionSelect.value);
+        const unit = faction.units.find(unit => unit.name === unitSelect.value);
+        changeUnitImage(unit);
+    }
+    );
+    hasInvul.addEventListener('change', function () {
+        if (hasInvul.checked) {
+            document.getElementById('invulnerableSave').style.display = 'flex';
+        } else {
+            document.getElementById('invulnerableSave').style.display = 'none';
+        }
+    }
+    );
+    addRangedWeapon.addEventListener('click', function () {
+        //Add new row to ranged weapons
+        const html = `
+        <td class="weaponFirstItem">
+            <div>
+                <span contenteditable="true">
+                    WEAPON NAME
+                </span>
+                <span contenteditable="true">
+                    [KEYWORDS]
+                </span>
+            </div>
+        </td>
+        <td>
+            <span contenteditable="true">
+                0"
+            </span>
+        </td>
+        <td>
+            <span contenteditable="true">
+                0
+            </span>
+        </td>
+        <td>
+            <span contenteditable="true">
+                0
+            </span>
+        </td>
+        <td>
+            <span contenteditable="true">
+                0
+            </span>
+        </td>
+        <td>
+            <span contenteditable="true">
+                0
+            </span>
+        </td>
+        <td>
+            <span contenteditable="true">
+                0
+            </span>
+        </td>`
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = html;
+        newRow.classList.add('weapon');
+        document.getElementById('rangedWeaponsBody').appendChild(newRow);
+
+
+    });
+    addMeleeWeapon.addEventListener('click', function () {
+        //Add new row to melee weapons
+        const html = `<td class="weaponFirstItem">
+        <div>
+            <span contenteditable="true">
+                WEAPON NAME
+            </span>
+            <span contenteditable="true">
+                [KEYWORDS]
+            </span>
+        </div>
+    </td>
+    <td>
+        <span contenteditable="true">
+            Melee
+        </span>
+    </td>
+    <td>
+        <span contenteditable="true">
+            0
+        </span>
+    </td>
+    <td>
+        <span contenteditable="true">
+            0
+        </span>
+    </td>
+    <td>
+        <span contenteditable="true">
+            0
+        </span>
+    </td>
+    <td>
+        <span contenteditable="true">
+            0
+        </span>
+    </td>
+    <td>
+        <span contenteditable="true">
+            0
+        </span>
+    </td>
+        `;
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = html;
+        newRow.classList.add('weapon');
+        document.getElementById('meleeWeaponsBody').appendChild(newRow);
+    });
 }, false);
